@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Contraseñas · Pizarrón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="pizarron">
+
+  <a href="{{ url_for('inicio') }}" class="volver">← inicio</a>
+
+  <header class="encabezado">
+    <h1>Contraseñas<span class="tiza-subrayado"></span></h1>
+    <p class="marco">generador seguro y aleatorio</p>
+  </header>
+
+  <main class="tarjeta">
+
+    <div class="campo-slider">
+      <label for="longitud">Longitud <span id="longitud-valor">18</span> caracteres</label>
+      <input type="range" id="longitud" min="6" max="40" value="18">
+    </div>
+
+    <label class="campo-checkbox">
+      <input type="checkbox" id="incluir-especiales" checked>
+      <span>Incluir caracteres especiales (!, $, %, &amp;, #, ...)</span>
+    </label>
+
+    <button class="boton-graficar" id="btn-generar" type="button">Generar contraseña</button>
+
+    <div class="password-resultado">
+      <span class="password-valor" id="password-valor">—</span>
+      <button class="btn-copiar" id="btn-copiar" type="button">Copiar</button>
+    </div>
+
+  </main>
+
+  <p class="pie">generado con Python en el servidor · nunca se guarda</p>
+</div>
+
+<script src="{{ url_for('static', filename='generador.js') }}"></script>
+</body>
+</html>

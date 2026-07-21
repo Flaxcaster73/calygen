@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Sitio · Herramientas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="pizarron">
+
+  <header class="encabezado">
+    <h1>Página Principal<span class="tiza-subrayado"></span></h1>
+    <p class="marco">herramientas hechas con Python + Flask</p>
+  </header>
+
+  <main class="tarjeta">
+    <div class="menu-tarjetas">
+
+      <a href="{{ url_for('calculadora') }}" class="tarjeta-app">
+        <span class="icono">🧮</span>
+        <h2>Calculadora</h2>
+        <p>operaciones básicas y gráficas de parábolas</p>
+      </a>
+
+      <a href="{{ url_for('generador') }}" class="tarjeta-app">
+        <span class="icono">🔐</span>
+        <h2>Generador de Contraseñas</h2>
+        <p>contraseñas seguras y aleatorias al instante</p>
+      </a>
+
+    </div>
+  </main>
+
+  <p class="pie">servidor Python corriendo en segundo plano</p>
+</div>
+
+</body>
+</html>

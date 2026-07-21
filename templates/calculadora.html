@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora · Pizarrón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="pizarron">
+
+  <a href="{{ url_for('inicio') }}" class="volver">← inicio</a>
+
+  <header class="encabezado">
+    <h1>Calculadora<span class="tiza-subrayado"></span></h1>
+    <p class="marco">hecha con Python + Flask</p>
+  </header>
+
+  <main class="tarjeta">
+
+    <nav class="tabs" role="tablist">
+      <button class="tab activo" data-tab="operaciones" type="button">Operaciones</button>
+      <button class="tab" data-tab="grafica" type="button">Graficar parábola</button>
+    </nav>
+
+    <!-- ===== PANEL 1: OPERACIONES BÁSICAS ===== -->
+    <section class="panel activo" id="panel-operaciones">
+      <div class="fila-inputs">
+        <div class="campo">
+          <label for="valor-a">a</label>
+          <input type="number" id="valor-a" placeholder="0" value="8">
+        </div>
+        <div class="campo">
+          <label for="valor-b">b</label>
+          <input type="number" id="valor-b" placeholder="0" value="3">
+        </div>
+      </div>
+
+      <div class="operaciones">
+        <button class="op" data-op="sumar">+</button>
+        <button class="op" data-op="restar">−</button>
+        <button class="op" data-op="multiplicar">×</button>
+        <button class="op" data-op="dividir">÷</button>
+        <button class="op" data-op="potencia">a^b</button>
+      </div>
+
+      <div class="resultado" id="resultado-operacion">
+        <span class="resultado-label">resultado</span>
+        <span class="resultado-valor">—</span>
+      </div>
+    </section>
+
+    <!-- ===== PANEL 2: GRAFICAR ===== -->
+    <section class="panel" id="panel-grafica">
+      <p class="instruccion">y = a·x² + b·x + c</p>
+      <div class="fila-inputs tres">
+        <div class="campo">
+          <label for="g-a">a</label>
+          <input type="number" id="g-a" value="1">
+        </div>
+        <div class="campo">
+          <label for="g-b">b</label>
+          <input type="number" id="g-b" value="0">
+        </div>
+        <div class="campo">
+          <label for="g-c">c</label>
+          <input type="number" id="g-c" value="0">
+        </div>
+      </div>
+
+      <button class="boton-graficar" id="btn-graficar" type="button">Dibujar gráfica</button>
+
+      <div class="contenedor-grafica" id="contenedor-grafica">
+        <p class="placeholder-grafica">Tu gráfica aparecerá aquí</p>
+      </div>
+    </section>
+
+  </main>
+
+  <p class="pie">servidor Python corriendo en segundo plano · resultado en tiempo real</p>
+</div>
+
+<script src="{{ url_for('static', filename='calculadora.js') }}"></script>
+</body>
+</html>
